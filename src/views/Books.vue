@@ -16,83 +16,88 @@
           </v-btn>
         </v-col>
         <v-col>
-          <v-simple-table
-              fixed-header
-              height="350px"
-
-          >
-            <template v-slot:default>
-              <thead>
-              <tr>
-                <th class="text-left">
-                  Name
-                </th>
-                <th class="text-left">
-                  Surname
-                </th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr
-                  v-for="item in desserts"
-                  :key="item.name"
-              >
-                <td>{{ item.name }}</td>
-                <td>{{ item.calories }}</td>
-              </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
+          <v-data-table
+              :headers="headers"
+              :items="tableData"
+              :items-per-page="5"
+              class="elevation-1"
+          ></v-data-table>
         </v-col>
       </v-sheet>
     </v-row>
   </v-container>
 </template>
 
+
 <script>
 export default {
   data () {
     return {
-      desserts: [
+      headers: [
+        {text: 'Name', value: 'name'},
+        { text: 'Author', value: 'surname' },
+        { text: 'Date', value: 'email' },
+      ],
+      tableData: [
         {
           name: 'Frozen Yogurt',
-          calories: 159,
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Ice cream sandwich',
-          calories: 237,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Eclair',
-          calories: 262,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Cupcake',
-          calories: 305,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Gingerbread',
-          calories: 356,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Jelly bean',
-          calories: 375,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Lollipop',
-          calories: 392,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Honeycomb',
-          calories: 408,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'Donut',
-          calories: 452,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
         {
-          name: 'KitKat',
-          calories: 518,
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
+        },
+        {
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
+        },
+        {
+          name: 'Frozen Yogurt',
+          surname: 159,
+          email: 'dkjfslk@gmail.com',
         },
       ],
     }

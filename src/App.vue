@@ -4,13 +4,11 @@
   >
     <v-app-bar
         app
-        color="orange"
         flat
     >
 
       <v-tabs
           background-color="transparent"
-          color="white"
           fixed-tabs
       >
         <v-tab
@@ -29,7 +27,7 @@
       ><v-avatar
             :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
             size="32"
-        ><img src="https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP">
+        ><img src="https://tlgrm.ru/_/stickers/2b7/ff8/2b7ff812-f294-4447-9145-95fd518167ca/1.jpg">
         </v-avatar>
       </v-btn>
 
@@ -80,10 +78,5 @@ export default {
 </script>
 
 <style>
-.basil {
-  background-color: #FFFBE6 !important;
-}
-.basil--text {
-  color: #356859 !important;
-}
+
 </style>
