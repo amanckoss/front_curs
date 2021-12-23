@@ -6,11 +6,19 @@
       <v-sheet
           min-width="100vh"
           rounded="lg">
-        <v-col
-        >
+        <v-col>
+          <v-btn
+              block
+              class="text-center py-3"
+              to="/add"
+          >
+            Add user
+          </v-btn>
+        </v-col>
+        <v-col>
           <v-simple-table
               fixed-header
-              height="400px"
+              height="350px"
 
           >
             <template v-slot:default>

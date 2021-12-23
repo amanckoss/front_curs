@@ -1,57 +1,99 @@
 <template>
   <v-container>
-    <template v-if="tab == 1">
-      <v-col
-          align="center">
-
-        <v-sheet
-            min-height="70vh"
-            rounded="lg">
-          <div class="mb-2">
-            Font
-          </div>
-
+    <v-row
+        justify="center">
+      <v-sheet
+          min-width="100vh"
+          rounded="lg"
+      >
+        <template v-if="tabValue === 1">
           <v-col
-              cols="12"
-              sm="6"
+              align="center"
           >
+            <div class="mb-1 text-center py-1">New User</div>
             <v-text-field
-                label="Regular"
-                placeholder="Placeholder"
+                label="Name"
+                placeholder="Enter name"
+            ></v-text-field>
+
+            <v-text-field
+                label="Surname"
+                placeholder="Enter surname"
+            ></v-text-field>
+
+            <v-text-field
+                label="Email"
+                placeholder="Enter email"
             ></v-text-field>
           </v-col>
 
+          <v-col align="center">
+            <v-btn>
+              Ok
+            </v-btn>
+          </v-col>
+        </template>
+        <template v-if="tabValue === 2">
           <v-col
-              cols="12"
-              sm="6"
+              align="center"
           >
+            <div class="mb-1 text-center py-1">New Book</div>
             <v-text-field
-                label="Regular"
-                placeholder="Placeholder"
+                label="Name"
+                placeholder="Enter name"
+            ></v-text-field>
+
+            <v-text-field
+                label="Author"
+                placeholder="Enter author"
             ></v-text-field>
           </v-col>
-          <v-btn block>
-            Block Button
-          </v-btn>
-        </v-sheet>
-      </v-col>
-    </template>
-    <template v-if="tab == 2">
 
-    </template>
-    <template v-if="tab == 3">
+          <v-col align="center">
+            <v-btn>
+              Ok
+            </v-btn>
+          </v-col>
+        </template>
+        <template v-if="tabValue === 3">
+          <v-col
+              align="center"
+          >
+            <div class="mb-1 text-center py-1">New Author</div>
+            <v-text-field
+                label="Name"
+                placeholder="Enter name"
+            ></v-text-field>
 
-    </template>
+            <v-text-field
+                label="Surname"
+                placeholder="Enter surname"
+            ></v-text-field>
+          </v-col>
+
+          <v-col align="center">
+            <v-btn>
+              Ok
+            </v-btn>
+          </v-col>
+        </template>
+      </v-sheet>
+    </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
   name: "Add",
-  props: ['tab']
+  props: {
+    tabValue: Number
+  }
 }
 </script>
 
 <style scoped>
+/deep/ .v-text-field{
+  width: 400px;
+}
 
 </style>

@@ -7,10 +7,6 @@
         color="orange"
         flat
     >
-      <v-avatar
-          :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
-          size="32"
-      ></v-avatar>
 
       <v-tabs
           background-color="transparent"
@@ -21,23 +17,29 @@
             v-for="link in links"
             :key="link.id"
             :to="link.route"
+            @click="setBarId(link.id)"
         >
           {{ link.name }}
         </v-tab>
       </v-tabs>
 
-      <v-avatar
-          class="hidden-sm-and-down"
-          color="grey darken-1 shrink"
-          size="32"
-      ></v-avatar>
+      <v-btn
+          icon
+          to="/home"
+      ><v-avatar
+            :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
+            size="32"
+        ><img src="https://play-lh.googleusercontent.com/VSwHQjcAttxsLE47RuS4PqpC4LT7lCoSjE7Hx5AW_yCxtDvcnsHHvm5CTuL5BPN-uRTP">
+        </v-avatar>
+      </v-btn>
+
     </v-app-bar>
 
     <v-parallax
         src="@/assets/background.png"
         height="600"
     >
-      <router-view tab="tab"></router-view>
+      <router-view :tab-value="tab"></router-view>
     </v-parallax>
   </v-app>
 </template>
@@ -72,7 +74,6 @@ export default {
   methods: {
     setBarId(id) {
       this.tab = id
-      return id
     }
   },
 }
