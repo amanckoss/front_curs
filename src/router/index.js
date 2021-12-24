@@ -5,6 +5,7 @@ import Main from '../views/Main'
 import Books from "../views/Books";
 import Users from "../views/Users";
 import Authors from "../views/Authors";
+import Edit from "../views/Edit"
 Vue.use(VueRouter)
 const routes = [
   {
@@ -14,6 +15,11 @@ const routes = [
   {
     path: '/add',
     component: Add,
+    props: true,
+  },
+  {
+    path: '/edit',
+    component: Edit,
     props: true,
   },
   {

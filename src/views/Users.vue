@@ -39,7 +39,7 @@ export default {
   data () {
     return {
       headers: [
-        {text: 'Name', value: 'name'},
+        { text: 'Name', value: 'name'},
         { text: 'Surname', value: 'surname' },
         { text: 'Email', value: 'email' },
       ],
@@ -54,10 +54,9 @@ export default {
       });
     },
     handleClick(user) {
-      console.log(user);
       router.push({
-        path: "/add",
-        params: { user }
+        path: "/edit",
+        props: { u: user }
       })
     },
   },

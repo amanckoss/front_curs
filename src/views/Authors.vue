@@ -12,13 +12,14 @@
               class="text-center py-3"
               to="/add"
           >
-            Add user
+            Add author
           </v-btn>
         </v-col>
         <v-col>
           <v-data-table
+              @click:row="handleClick"
               :headers="headers"
-              :items="tableData"
+              :items="authors"
               :items-per-page="5"
               class="elevation-1"
           ></v-data-table>
@@ -29,77 +30,34 @@
 </template>
 
 <script>
+import AuthorService from "../services/AuthorService";
+import router from '../router/index.js'
+
 export default {
   data () {
     return {
       headers: [
-        {text: 'Name', value: 'name'},
-        { text: 'Surname', value: 'surname' },
-        { text: 'Id', value: 'email' },
+        { text: 'Name', value: 'name'},
+        { text: 'Surname', value: 'surname' }
       ],
-      tableData: [
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-      ],
+      authors: []
     }
+  },
+  methods: {
+    getAuthors(){
+      AuthorService.getAuthors().then((response) => {
+        this.authors = response.data
+      });
+    },
+    handleClick(author) {
+      router.push({
+        path: "/edit",
+        props: { a: author }
+      })
+    },
+  },
+  created() {
+    this.getAuthors();
   },
 }
 </script>

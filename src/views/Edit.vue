@@ -71,19 +71,19 @@
               align="center"
           >
             <div class="mb-1 text-center py-1">New Author</div>
-            <v-text-field v-model="author_name"
+            <v-text-field
                 label="Name"
                 placeholder="Enter name"
             ></v-text-field>
 
-            <v-text-field v-model="author_surname"
+            <v-text-field
                 label="Surname"
                 placeholder="Enter surname"
             ></v-text-field>
           </v-col>
 
           <v-col align="center">
-            <v-btn v-on:click="new_author">
+            <v-btn>
               Ok
             </v-btn>
           </v-col>
@@ -97,31 +97,29 @@
 
 import UserService from '../services/UserService';
 import BookService from '../services/BookService';
-import AuthorService from '../services/AuthorService';
-import router from '../router/index.js'
+
 
 export default {
-  name: "Add",
+  name: "Edit",
   props: {
     tabValue: Number,
+    u: Object
   },
   data(){
     return{
       user_name: "",
-      user_surname: "",
+      user_surname: "wdfere",
       user_email: "",
       user_username: "",
       user_password: "",
 
       book_name: "",
-      book_author: "",
-
-      author_name: "",
-      author_surname: ""
+      book_author: ""
     }
   },
   methods: {
     new_user(){
+      console.log(this.user_name);
       UserService.postUser({
         name: this.user_name,
         surname: this.user_surname,
@@ -130,31 +128,21 @@ export default {
         password: this.user_password
       }
       )
-      router.push({
-        path: "/users",
-      })
     },
     new_book(){
+      console.log(this.user_name);
       BookService.postBook({
             name: this.book_name,
             author: this.book_author
           }
       )
-      router.push({
-        path: "/books",
-      })
-    },
-    new_author(){
-      AuthorService.postAuthor({
-            name: this.author_name,
-            surname: this.author_surname
-          }
-      )
-      router.push({
-        path: "/authors",
-      })
     }
-  }
+  },
+  created() {
+    console.log("1111111111111111")
+    console.log(UserService.user_name)
+    console.log(this)
+  },
 }
 </script>
 
