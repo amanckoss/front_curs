@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column align-center">
+  <div class="d-flex flex-column align-center" style="color:#1e1e1e">
     <h1>Library</h1>
   </div>
 </template>
@@ -11,5 +11,9 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  font-size: 3em;
+}
 
 </style>

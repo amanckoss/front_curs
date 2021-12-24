@@ -17,8 +17,9 @@
         </v-col>
         <v-col>
           <v-data-table
+              @click:row="handleClick"
               :headers="headers"
-              :items="tableData"
+              :items="users"
               :items-per-page="5"
               class="elevation-1"
           ></v-data-table>
@@ -29,6 +30,11 @@
 </template>
 
 <script>
+
+import UserService from '../services/UserService';
+import router from '../router/index.js'
+
+
 export default {
   data () {
     return {
@@ -37,69 +43,26 @@ export default {
         { text: 'Surname', value: 'surname' },
         { text: 'Email', value: 'email' },
       ],
-      tableData: [
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-          {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-      ],
+      users: []
     }
+  },
+  methods: {
+    getUsers(){
+      UserService.getUsers().then((response) => {
+        console.log(response.data[0].name)
+        this.users = response.data
+      });
+    },
+    handleClick(user) {
+      console.log(user);
+      router.push({
+        path: "/add",
+        params: { user }
+      })
+    },
+  },
+  created() {
+    this.getUsers();
   },
 }
 </script>

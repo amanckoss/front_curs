@@ -27,7 +27,7 @@
       ><v-avatar
             :color="$vuetify.breakpoint.smAndDown ? 'grey darken-1' : 'transparent'"
             size="32"
-        ><img src="https://tlgrm.ru/_/stickers/2b7/ff8/2b7ff812-f294-4447-9145-95fd518167ca/1.jpg">
+        ><img src="https://avatars.githubusercontent.com/u/47503746?s=400&u=939319a17b3116295228918c42659e5bde1a6cf3&v=4">
         </v-avatar>
       </v-btn>
 

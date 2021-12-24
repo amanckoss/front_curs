@@ -17,8 +17,9 @@
         </v-col>
         <v-col>
           <v-data-table
+              @click:row="handleClick"
               :headers="headers"
-              :items="tableData"
+              :items="books"
               :items-per-page="5"
               class="elevation-1"
           ></v-data-table>
@@ -30,77 +31,31 @@
 
 
 <script>
+import BookService from "../services/BookService";
+
 export default {
   data () {
     return {
       headers: [
-        {text: 'Name', value: 'name'},
-        { text: 'Author', value: 'surname' },
-        { text: 'Date', value: 'email' },
+        { text: 'Name', value: 'name'},
+        { text: 'Author', value: 'author' }
       ],
-      tableData: [
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-        {
-          name: 'Frozen Yogurt',
-          surname: 159,
-          email: 'dkjfslk@gmail.com',
-        },
-      ],
+      books: []
     }
+  },
+  methods: {
+    getBooks(){
+      BookService.getBooks().then((response) => {
+        console.log(response.data[0].name)
+        this.books = response.data
+      });
+    },
+    handleClick(value) {
+      console.log(value.name);
+    }
+  },
+  created() {
+    this.getBooks();
   },
 }
 </script>
